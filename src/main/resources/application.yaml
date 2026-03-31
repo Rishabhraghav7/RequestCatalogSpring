@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: finalevaluation
+  datasource:
+    url: jdbc:mysql://192.168.16.191:5873/user_1197
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: rw_onprem_user_1197
+    password: R1SH_RAGH_A7VM_N4KL_B2XC
+
+server:
+  port: 8010
+  
+
+  spring:
+    sql:
+      init:
+        mode: always
+        schema-locations: classpath:Schema.sql
+
+activemq:
+    broker-url: tcp://localhost:61616
+    user: admin
+    password: rishabh
+    pool:
+      enabled: false
+
+    jms:
+    is-pub-sub-domain: false
+    template:
+      default-destination: my-queue
+    listener:
+      auto-startup: true
+      concurrency: 1
+      max-concurrency: 5
+queue:
+  name: order_notification
